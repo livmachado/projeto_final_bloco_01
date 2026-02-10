@@ -12,7 +12,7 @@ export class DigitalBook extends Book {
         type: number,
         fileFormat: number
     ) {
-        super(id, title, type, price);
+        super(id, title, price, type);
         this._fileFormat= fileFormat;
 	}
     

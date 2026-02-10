@@ -12,7 +12,7 @@ export class PhysicalBook extends Book {
         type: number,
         quantity: number
     ) {
-        super(id, title, type, price);
+        super(id, title, price, type);
         this._quantity= quantity;
     }
     

@@ -93,9 +93,6 @@ function addNewBook(){
     console.log("\nSelecione o tipo de Livro: ")
     const type = Input.keyInSelect(typeBook, "", { cancel: false}) + 1
 
-    console.log(type)
-    console.log(price)
-
     switch(type){
         case 1: 
             console.log("\nSelecione o tipo do arquivo: ");
