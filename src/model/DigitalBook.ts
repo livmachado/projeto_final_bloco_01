@@ -2,7 +2,7 @@ import { Colors } from "../util/Colors";
 import { Book } from "./Book";
 
 export class DigitalBook extends Book {
-    private _fileFormat: 'PDF' | 'EPUB' | 'MOBI';
+    private _fileFormat: number;
 
 
 	constructor(
@@ -10,26 +10,41 @@ export class DigitalBook extends Book {
         title: string, 
         price: number, 
         type: number,
-        fileFormat: 'PDF' | 'EPUB' | 'MOBI'
+        fileFormat: number
     ) {
         super(id, title, type, price);
         this._fileFormat= fileFormat;
 	}
     
     
-    public get fileFormat(): string {
+    public get fileFormat(): number {
         return this._fileFormat;
     }
 
 
-    public set fragrance(value: "PDF" | "EPUB" | "MOBI") {
+    public set fileFormat(value: number) {
         this._fileFormat = value;
     }
 
         // Método visualizar sobrescrito (Polimorfismo)
     public view(): void {
+        let fileFormat: string;
+
+        switch(this._fileFormat){
+            case 1:
+                fileFormat = "PDF"
+            break;
+            case 2:
+                fileFormat = "EPUB";
+            break;
+            case 3:
+                fileFormat = "MOBI";
+            break;
+            default:
+                fileFormat = "Tipo Inválido";
+        }
         super.view()
-        console.log(Colors.bg.black, Colors.fg.white,`Formato do Arquivo: ${this._fileFormat}`,Colors.reset)
+        console.log(Colors.bg.black, Colors.fg.white,`Formato do Arquivo: ${fileFormat}`,Colors.reset)
     }
 
     

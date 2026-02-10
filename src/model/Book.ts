@@ -65,13 +65,14 @@ export abstract class Book {
                 type = "Tipo Inválido";
         }
 
-        console.log(Colors.bg.black, Colors.fg.white,"\n  ************************************");
-        console.log("          DADOS DO Livro            ");
-        console.log("  ************************************");
+        console.log(Colors.bg.black, Colors.fg.white,
+				"\n  *******************************************");
+        console.log("                DADOS DO Livro               ");
+        console.log("  *******************************************");
         console.log(`  Código do Livro: ${this._id}`);
         console.log(`  Nome do Livro: ${this._title}`);
         console.log(`  Tipo: ${type}`);
-        console.log(`  Preço: ${formatCurrency(this.price)}`, Colors.reset);
+        console.log(`  Preço: ${formatCurrency(this._price)}`, Colors.reset);
     }
 
 
