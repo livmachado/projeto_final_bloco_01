@@ -171,9 +171,11 @@ function updateBook(): void {
                 console.log(`\nFormato atual: ${fileFormat}`);
                 console.log("Digite o novo formato: ");
                 console.log("(Pressione ENTER para manter o valor atual)");
-                fileFormat = Input.keyInSelect(formatType, "", { cancel: false}) + 1;
+                const newFileFormat = Input.keyInSelect(formatType, "") + 1;
 
-                books.update(new DigitalBook(id, title, price, type, fileFormat));
+                newFileFormat !== 0 ? 
+                    books.update(new DigitalBook(id, title, price, type, newFileFormat)) 
+                    : books.update(new DigitalBook(id, title, price, type, fileFormat))
             break;
 
             case 2: 
@@ -185,7 +187,7 @@ function updateBook(): void {
                 console.log("(Pressione ENTER para manter o valor atual)");
                 quantity = Input.questionInt("", { defaultInput: quantity });
 
-                books.update(new DigitalBook(id, title, price, type, quantity));
+                books.update(new PhysicalBook(id, title, price, type, quantity));
             break;
         }
     } else {
@@ -228,12 +230,12 @@ function createTestBooks(): void{
 
     //Livro digital
 
-    books.create(new DigitalBook(books.generateId(), "Alice no País das Maravilhas", 1, 60.00, 2))
-    books.create(new DigitalBook(books.generateId(), "O Pequeno Príncipe", 1, 13.20, 1))
+    books.create(new DigitalBook(books.generateId(), "Alice no País das Maravilhas", 60.00, 1, 2))
+    books.create(new DigitalBook(books.generateId(), "O Pequeno Príncipe", 13.20, 1, 1))
 
     //Livro Fisico
-    books.create(new PhysicalBook(books.generateId(), "Código Limpo", 2, 65.00, 20))
-    books.create(new PhysicalBook(books.generateId(), "Harry Potter e a Câmara Secreta", 2, 29.90, 12))
+    books.create(new PhysicalBook(books.generateId(), "Código Limpo", 65.00, 2, 20))
+    books.create(new PhysicalBook(books.generateId(), "Harry Potter e a Câmara Secreta", 29.90, 2, 12))
 
 }
 
