@@ -23,6 +23,18 @@ export class BookController implements BookRepository{
         }
     }
 
+    findByTitle(title: string): void {
+        const searchByTitle = this.bookList.filter( book => 
+            book.title.toUpperCase().includes(title.toUpperCase())
+        )
+        
+        if (searchByTitle.length > 0){
+            searchByTitle.forEach( book => book.view());
+        }else{
+            console.log(Colors.fg.red, `\nNenhum livro foi encontrado!`, Colors.reset);
+        }
+    }
+
     create(book: Book): void {
         this.bookList.push(book)
         console.log(Colors.fg.green, `\nO Livro ${book.title} foi cadastrado com sucesso!`, Colors.reset)

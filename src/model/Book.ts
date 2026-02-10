@@ -59,7 +59,7 @@ export abstract class Book {
                 type = "Digital"
             break;
             case 2:
-                type = "Físico";
+                type = "Fisico";
             break;
             default:
                 type = "Tipo Inválido";
@@ -67,7 +67,7 @@ export abstract class Book {
 
         console.log(Colors.bg.black, Colors.fg.white,
 				"\n  *******************************************");
-        console.log("                DADOS DO Livro               ");
+        console.log("                DADOS DO LIVRO               ");
         console.log("  *******************************************");
         console.log(`  Código do Livro: ${this._id}`);
         console.log(`  Nome do Livro: ${this._title}`);

@@ -30,6 +30,7 @@ export function main() {
         console.log("              3 - Buscar Livro por código              ");
         console.log("              4 - Atualizar Livro                      ");
         console.log("              5 - Apagar Livro                         ");
+        console.log("              6 - Buscar por titulo do Livro           ");
         console.log("              0 - Sair                                 ");
         console.log("                                                       ");
         console.log("  *****************************************************", Colors.reset);
@@ -71,6 +72,11 @@ export function main() {
                 deleteBookById()
                 keyPress()
             break;
+            case 6:
+                console.log(Colors.fg.whitestrong,"\nProcurar Conta por Titulo do Livro\n", Colors.reset)
+                findByTitle()
+                keyPress()
+            break;
             default:
                 console.log(Colors.fg.redstrong,"\nOpção Inválida\n", Colors.reset)
                 keyPress()
@@ -78,6 +84,12 @@ export function main() {
 
         }
     }
+}
+
+function findByTitle(): void {
+    console.log("Digite o titulo do livro: ")
+    const title = Input.question("");
+    books.findByTitle(title)
 }
 
 // Opção 1: Adicionar novo livro
