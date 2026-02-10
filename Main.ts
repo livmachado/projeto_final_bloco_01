@@ -1,9 +1,19 @@
+import { DigitalBook } from "./src/model/DigitalBook";
+import { PhysicalBook } from "./src/model/PhysicalBook";
 import { Colors } from "./src/util/Colors";
 import { Input } from "./src/util/Input";
 
 export function main() {
 
     let option: number
+
+    console.log("\nTestes - Classe Conta Corrente");
+
+    const bd1 = new DigitalBook(1, "Alice no País das Maravilhas", 1, 60.00, "PDF");
+    const bp1 = new PhysicalBook(2, "Alice no País das Maravilhas", 2, 60.00, 30);
+
+    bd1.view();
+    bp1.view();
 
 
     while(true){
